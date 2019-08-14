@@ -4,13 +4,13 @@ import pygame
 def run_game():
     # Initialize pygame
     pygame.init()
-    bg_color = (25, 175, 255)
-    screen = pygame.display.set_mode((1200, 800))
+    screen = pygame.display.set_mode((600, 400))
     pygame.display.set_caption("Keys")
+    screen.fill((0, 0, 255))
+    pygame.display.update()
 
-    # Start the main loop for the game.
+    # Start the main loop.
     while True:
-        screen.fill(bg_color)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
