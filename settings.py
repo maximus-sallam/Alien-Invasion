@@ -15,4 +15,4 @@ class Settngs():
         self.bullet_speed_factor = 15
         self.bullet_width = 3
         self.bullet_height = 15
-        self.bullet_color = 255, 255, 255
+        self.bullet_color = 255, 0, 0
