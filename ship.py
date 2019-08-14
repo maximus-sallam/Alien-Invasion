@@ -22,13 +22,16 @@ class Ship():
         self.moving_up = False
 
     def update(self):
-        """Update the ship's position based on the movement flag."""
+        """Update the ship's position based on the movement flags."""
         if self.moving_right:
             self.rect.centerx += 7.5
+
         if self.moving_left:
             self.rect.centerx -= 7.5
+
         if self.moving_down:
             self.rect.bottom += 7.5
+
         if self.moving_up:
             self.rect.bottom -= 7.5
 
