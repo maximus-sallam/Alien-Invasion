@@ -1,9 +1,6 @@
 import sys
 import pygame
 
-def keydown_event():
-    print("poop")
-
 def run_game():
     # Initialize pygame
     pygame.init()
@@ -18,6 +15,6 @@ def run_game():
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                keydown_event()
+                print(event.key)
 
 run_game()
