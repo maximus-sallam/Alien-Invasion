@@ -9,23 +9,35 @@ def check_events(ship):
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                # Move the ship to the right.
-                ship.rect.centerx += 10
+                ship.moving_right = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                # Move the ship to the left.
-                ship.rect.centerx -= 10
+                ship.moving_left = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                ship.moving_left = False
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                # Move the ship up.
-                ship.rect.bottom -= 10
+                ship.moving_up = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP:
+                ship.moving_up = False
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
-                # Move the ship down.
-                ship.rect.bottom += 10
+                ship.moving_down = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                ship.moving_down = False
 
 def update_screen(ai_settings, screen, ship):
     """Update images on the screen and flip to the new screen."""
