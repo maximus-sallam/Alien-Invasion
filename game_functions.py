@@ -42,7 +42,13 @@ def check_keyup_events(event, ship):
 def update_screen(ai_settings, screen, ship, bullets):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
-    screen.fill(ai_settings.bg_color)
+
+    # With background image
+    screen.blit(pygame.image.load("images/background.jpg"), (0, 0))
+
+    # With backkground color
+    # screen.fill(ai_settings.bg_color)
+
     # Redraw all bullets behind ship and aliens.
     for bullet in bullets.sprites():
         bullet.draw_bullet()
