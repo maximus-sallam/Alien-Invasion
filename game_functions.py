@@ -26,6 +26,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         # Create a new bullet and add it to the bullets group.
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
+        Bullet.bullet_sound('')
 
 def check_keyup_events(event, ship):
     """Respond to ket releases."""

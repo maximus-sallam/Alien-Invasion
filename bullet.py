@@ -1,4 +1,5 @@
 import pygame
+import os
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
@@ -31,3 +32,8 @@ class Bullet(Sprite):
     def draw_bullet(self):
         """Draw the bullet to the screen."""
         pygame.draw.rect(self.screen, self.color, self.rect)
+
+    def bullet_sound(self):
+        pygame.mixer.init()
+        bullet_sound = pygame.mixer.Sound('sound/bullet.wav')
+        pygame.mixer.Sound.play(bullet_sound)
