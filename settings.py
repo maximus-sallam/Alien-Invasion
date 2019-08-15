@@ -10,7 +10,7 @@ class Settngs():
         self.screen_height = 800
         self.bg_color = (25, 175, 255)
         self.bg_image = pygame.image.load("images/background.jpg")
-        self.bg_sound = pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5)
+        self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
 
         # Ship settings
         self.ship_speed_factor = 15
