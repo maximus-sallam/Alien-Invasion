@@ -10,7 +10,9 @@ def run_game():
     ai_settings = Settngs()
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Max Invasion")
+    pygame.display.set_caption("Star Invasion")
+    pygame.mixer.music.load("sound/stars.mp3")
+    pygame.mixer.music.play(-1, 19.5)
 
     # Make a ship.
     ship = Ship(ai_settings, screen)
