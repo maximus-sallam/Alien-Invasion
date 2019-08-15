@@ -18,6 +18,7 @@ class Bullet(Sprite):
 
         # Store the bullet's position as a decimal value.
         self.y = float(self.rect.y)
+        self.x = float(self.rect.x)
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
@@ -26,8 +27,10 @@ class Bullet(Sprite):
         """Move the bullet up the screen."""
         # Update the decimal position of the bullet.
         self.y -= self.speed_factor
+
         # Update the rect position.
         self.rect.y = self.y
+        self.rect.x = self.x
 
     def draw_bullet(self):
         """Draw the bullet to the screen."""

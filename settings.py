@@ -1,3 +1,5 @@
+import pygame
+
 class Settngs():
     """A class to store all settings for Max Invasion."""
 
@@ -7,6 +9,7 @@ class Settngs():
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (25, 175, 255)
+        self.bg_image = pygame.image.load("images/background.jpg")
 
         # Ship settings
         self.ship_speed_factor = 15

@@ -44,7 +44,7 @@ def update_screen(ai_settings, screen, ship, bullets):
     # Redraw the screen during each pass through the loop.
 
     # With background image
-    screen.blit(pygame.image.load("images/background.jpg"), (0, 0))
+    screen.blit(ai_settings.bg_image, (0, 0))
 
     # With backkground color
     # screen.fill(ai_settings.bg_color)
