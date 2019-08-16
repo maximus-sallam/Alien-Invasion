@@ -75,6 +75,9 @@ def update_bullets(bullets):
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
+        if bullet.rect.bottom >= 800:
+            bullets.remove(bullet)
+
     # Counts how many bullets are on screen in the terminal
     # print(len(bullets))
 
@@ -105,9 +108,11 @@ def create_fleet(ai_settings, screen, ship, aliens):
     # Create an alien and find the number of aliens in a row.
     alien = Alien(ai_settings, screen)
     number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
-    number_rows = get_number_rows(ai_settings, ship.rect.height, alien.rect.height)
+    number_rows = get_number_rows(ai_settings, ship.rect.height,
+                                  alien.rect.height)
 
     # Create the fleet of aliens.
     for row_number in range(number_rows):
         for alien_number in range(number_aliens_x):
-            create_alien(ai_settings, screen, aliens, alien_number, row_number)
+            create_alien(ai_settings, screen, aliens, alien_number,
+                         row_number)
