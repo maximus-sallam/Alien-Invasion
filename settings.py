@@ -10,7 +10,12 @@ class Settngs():
         self.screen_height = 800
         self.bg_color = (25, 175, 255)
         self.bg_image = pygame.image.load("images/background.jpg")
-        self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
+
+        """Background Music"""
+        # All the stars are closer
+        # self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
+        # Star wars main theme
+        self.bg_sound = (pygame.mixer.music.load("sound/starwars.mp3"), pygame.mixer.music.play(-1, 0))
 
         # Ship settings
         self.ship_speed_factor = 15
@@ -21,3 +26,6 @@ class Settngs():
         self.bullet_height = 15
         self.bullet_color = 255, 0, 0
         self.bullets_allowed = 3
+
+        # Alien settings
+        self.alien_speed_factor = 5
