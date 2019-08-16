@@ -1,6 +1,6 @@
 import pygame
 from pygame.sprite import Group
-from settings import Settngs
+from settings import Settings
 from game_stats import GameStats
 from ship import Ship
 import game_functions as gf
@@ -8,7 +8,7 @@ import game_functions as gf
 def run_game():
     # Initialize pygame, settings, and screen object.
     pygame.init()
-    ai_settings = Settngs()
+    ai_settings = Settings()
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")

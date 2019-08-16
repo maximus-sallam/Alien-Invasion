@@ -1,6 +1,6 @@
 import pygame
 
-class Settngs():
+class Settings():
     """A class to store all settings for Max Invasion."""
 
     def __init__(self):
