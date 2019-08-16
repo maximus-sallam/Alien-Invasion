@@ -11,12 +11,6 @@ class Settings():
         self.bg_color = (25, 175, 255)
         self.bg_image = pygame.image.load("images/background.jpg")
 
-        """Background Music"""
-        # All the stars are closer
-        self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
-        # Star wars main theme
-        # self.bg_sound = (pygame.mixer.music.load("sound/starwars.mp3"), pygame.mixer.music.play(-1, 0))
-
         # Ship settings
         self.ship_speed_factor = 15
         self.ship_limit = 3

@@ -147,6 +147,8 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
         sleep(1.5)
 
     else:
+        stop_music()
+        play_end()
         stats.game_active = False
 
 def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
@@ -190,3 +192,26 @@ def hit_sound():
     pygame.mixer.init()
     hit_sound = pygame.mixer.Sound('sound/hit.wav')
     pygame.mixer.Sound.play(hit_sound)
+
+def play_music():
+    """Play background music."""
+    pygame.mixer.init()
+
+    # All the stars are closer
+    pygame.mixer.music.load("sound/stars.mp3")
+
+    # Star wars main theme
+    # pygame.mixer.music.load("sound/starwars.mp3")
+
+    pygame.mixer.music.play(-1, 0)
+
+def stop_music():
+    """Stop background music."""
+    pygame.mixer.init()
+    pygame.mixer.music.stop()
+
+def play_end():
+    """Final sound after you lose."""
+    pygame.mixer.init()
+    pygame.mixer.music.load("sound/sad.mp3")
+    pygame.mixer.music.play(1, 0)

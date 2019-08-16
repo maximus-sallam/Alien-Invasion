@@ -13,6 +13,9 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
+    # Play background music.
+    gf.play_music()
+
     # Create an instance to store game statistic.
     stats = GameStats(ai_settings)
 
@@ -28,11 +31,7 @@ def run_game():
 
     # Start the main loop for the game.
     while True:
-        # Play background music.
-        ai_settings.bg_sound
-
         gf.check_events(ai_settings, screen, ship, bullets)
-
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
