@@ -125,7 +125,7 @@ def create_fleet(ai_settings, screen, ship, aliens):
             create_alien(ai_settings, screen, aliens, alien_number,
                          row_number)
 
-def update_aliens(ai_settings, ship, aliens):
+def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
     """
     Check if the fleet is at an edge,
       and then update the positions of all aliens in the fleet.
@@ -135,7 +135,7 @@ def update_aliens(ai_settings, ship, aliens):
 
     # Look for alien-ship collisions.
     if pygame.sprite.spritecollideany(ship, aliens):
-        print("Ship hit!!!")
+        hit_sound()
 
 def check_fleet_edges(ai_settings, aliens):
     """Respond appropriately if any aliens have reached an edge."""
@@ -149,3 +149,8 @@ def change_fleet_direction(ai_settings, aliens):
     for alien in aliens.sprites():
         alien.rect.y += ai_settings.fleet_drop_speed
     ai_settings.fleet_direction *= -1
+
+def hit_sound():
+    pygame.mixer.init()
+    hit_sound = pygame.mixer.Sound('sound/hit.wav')
+    pygame.mixer.Sound.play(hit_sound)
