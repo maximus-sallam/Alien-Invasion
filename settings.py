@@ -13,9 +13,9 @@ class Settings():
 
         """Background Music"""
         # All the stars are closer
-        # self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
+        self.bg_sound = (pygame.mixer.music.load("sound/stars.mp3"), pygame.mixer.music.play(-1, 19.5))
         # Star wars main theme
-        self.bg_sound = (pygame.mixer.music.load("sound/starwars.mp3"), pygame.mixer.music.play(-1, 0))
+        # self.bg_sound = (pygame.mixer.music.load("sound/starwars.mp3"), pygame.mixer.music.play(-1, 0))
 
         # Ship settings
         self.ship_speed_factor = 15
