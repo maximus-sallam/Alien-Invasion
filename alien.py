@@ -1,4 +1,5 @@
 import pygame
+import math
 from pygame.sprite import Sprite
 
 class Alien(Sprite):
@@ -20,6 +21,8 @@ class Alien(Sprite):
 
         # Store the alien's exact position.
         self.x = float(self.rect.x)
+        self.radius = 7.5
+        self.angle = 5
 
     def blitme(self):
         """Draw the alien at its current location."""
@@ -38,3 +41,6 @@ class Alien(Sprite):
         self.x += (self.ai_settings.alien_speed_factor
                    * self.ai_settings.fleet_direction)
         self.rect.x = self.x
+        self.rect.x = self.radius * math.sin(self.angle) + self.rect.x
+        self.rect.y = self.radius * math.cos(self.angle) + self.rect.y
+        self.angle -= 0.5

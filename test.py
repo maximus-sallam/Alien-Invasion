@@ -1,25 +1,54 @@
 """This file is for testing"""
 import pygame
+import math
 
-# initialize game engine
+class Block(pygame.sprite.Sprite):
+    """ This class represents the ball that moves in a circle. """
+
+    def __init__(self, color, width, height):
+        """ Constructor that create's the ball's image. """
+        super().__init__()
+        self.image =pygame.image.load('images/alien.png')
+        self.rect = self.image.get_rect()
+        self.radius = 15
+        self.angle = 0
+
+    def update(self):
+        """ Update the ball's position. """
+        # Calculate a new x, y
+        self.rect.x = self.radius * math.sin(self.angle) + 130
+        self.rect.y = self.radius * math.cos(self.angle) + 130
+        self.angle += 0.5
+
+
+# Initialize Pygame
 pygame.init()
 
-# Open a window
-screen = pygame.display.set_mode((1200, 800))
+# Set the height and width of the screen
+screen = pygame.display.set_mode((300, 300))
 
-dead = True
-background_image = pygame.image.load("images/background.jpg")
-pygame.mixer.init()
-pygame.mixer.music.load("sound/stars.mp3")
-pygame.mixer.music.play(-1,0.0)
+block_list = pygame.sprite.Group()
+all_sprites_list = pygame.sprite.Group()
+block = Block(0, 0, 0)
+all_sprites_list.add(block)
 
-# bullet_sound = pygame.mixer.Sound('sound/videoplayback.wav')
-# pygame.mixer.Sound.play(bullet_sound)
+# Loop until the user clicks the close button.
+done = False
 
-while (dead == True):
+# -------- Main Program Loop -----------
+while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            dead = False
+            done = True
 
-    screen.blit(background_image, (0, 0))
+    all_sprites_list.update()
+    # Clear the screen
+    screen.fill((0, 0, 0))
+
+    # Draw all the spites
+    all_sprites_list.draw(screen)
+
+    # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
+
+pygame.quit()
