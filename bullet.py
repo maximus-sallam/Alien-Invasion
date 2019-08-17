@@ -88,8 +88,8 @@ class BulletLeft(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) and then set correct position.
-        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
-                                ai_settings.bullet_height)
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_height,
+                                ai_settings.bullet_width)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
@@ -127,8 +127,8 @@ class BulletRight(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) and then set correct position.
-        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
-                                ai_settings.bullet_height)
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_height,
+                                ai_settings.bullet_width)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
