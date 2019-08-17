@@ -21,6 +21,7 @@ class Alien(Sprite):
 
         # Store the alien's exact position.
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
         self.radius = 7.5
         self.angle = 5
 
