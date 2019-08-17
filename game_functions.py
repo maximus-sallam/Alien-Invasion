@@ -1,7 +1,7 @@
 import sys
 from time import sleep
 import pygame
-from bullet import Bullet, Bullet2
+from bullet import BulletUp, BulletDown, BulletLeft, BulletRight
 from alien import Alien
 
 def check_events(ai_settings, screen, ship, bullets):
@@ -24,28 +24,48 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_down = True
     elif event.key == pygame.K_UP:
         ship.moving_up = True
-    elif event.key == pygame.K_SPACE:
-        fire_bullet(ai_settings, screen, ship, bullets)
-    elif event.key == pygame.K_z:
-        fire_bullet2(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_w:
+        fire_bullet_up(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_s:
+        fire_bullet_down(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_a:
+        fire_bullet_left(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_d:
+        fire_bullet_right(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_q:
         sys.exit()
 
-def fire_bullet(ai_settings, screen, ship, bullets):
+def fire_bullet_up(ai_settings, screen, ship, bullets):
     """Fire a bullet if limit nor reached yet."""
     # Create a new bullet and add it to the bullets group.
     if len(bullets) < ai_settings.bullets_allowed:
-        new_bullet = Bullet(ai_settings, screen, ship)
+        new_bullet = BulletUp(ai_settings, screen, ship)
         bullets.add(new_bullet)
-        Bullet.bullet_sound()
+        BulletUp.bullet_sound()
 
-def fire_bullet2(ai_settings, screen, ship, bullets):
+def fire_bullet_down(ai_settings, screen, ship, bullets):
     """Fire a bullet if limit nor reached yet."""
     # Create a new bullet and add it to the bullets group.
     if len(bullets) < ai_settings.bullets_allowed:
-        new_bullet = Bullet2(ai_settings, screen, ship)
+        new_bullet = BulletDown(ai_settings, screen, ship)
         bullets.add(new_bullet)
-        Bullet2.bullet_sound()
+        BulletDown.bullet_sound()
+
+def fire_bullet_left(ai_settings, screen, ship, bullets):
+    """Fire a bullet if limit nor reached yet."""
+    # Create a new bullet and add it to the bullets group.
+    if len(bullets) < ai_settings.bullets_allowed:
+        new_bullet = BulletLeft(ai_settings, screen, ship)
+        bullets.add(new_bullet)
+        BulletLeft.bullet_sound()
+
+def fire_bullet_right(ai_settings, screen, ship, bullets):
+    """Fire a bullet if limit nor reached yet."""
+    # Create a new bullet and add it to the bullets group.
+    if len(bullets) < ai_settings.bullets_allowed:
+        new_bullet = BulletRight(ai_settings, screen, ship)
+        bullets.add(new_bullet)
+        BulletRight.bullet_sound()
 
 def check_keyup_events(event, ship):
     """Respond to key releases."""
@@ -87,6 +107,10 @@ def update_bullets(ai_settings, screen, ship, aliens, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
         if bullet.rect.bottom >= 800:
+            bullets.remove(bullet)
+        if bullet.rect.left <= 0:
+            bullets.remove(bullet)
+        if bullet.rect.right >= 1200:
             bullets.remove(bullet)
 
     check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
