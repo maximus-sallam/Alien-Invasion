@@ -88,8 +88,8 @@ class BulletLeft(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) and then set correct position.
-        self.rect = pygame.Rect(0, 0, ai_settings.bullet_height,
-                                ai_settings.bullet_width)
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
+                                ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
@@ -104,6 +104,7 @@ class BulletLeft(Sprite):
         """Move the bullet up the screen."""
         # Update the decimal position of the bullet.
         self.x -= self.speed_factor
+        self.y -= self.speed_factor * 2
 
         # Update the rect position.
         self.rect.y = self.y
@@ -127,8 +128,8 @@ class BulletRight(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) and then set correct position.
-        self.rect = pygame.Rect(0, 0, ai_settings.bullet_height,
-                                ai_settings.bullet_width)
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
+                                ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
@@ -143,6 +144,7 @@ class BulletRight(Sprite):
         """Move the bullet up the screen."""
         # Update the decimal position of the bullet.
         self.x += self.speed_factor
+        self.y -= self.speed_factor * 2
 
         # Update the rect position.
         self.rect.y = self.y
