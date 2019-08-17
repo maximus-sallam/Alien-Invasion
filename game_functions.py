@@ -1,7 +1,7 @@
 import sys
 from time import sleep
 import pygame
-from bullet import Bullet
+from bullet import Bullet, Bullet2
 from alien import Alien
 
 def check_events(ai_settings, screen, ship, bullets):
@@ -26,6 +26,8 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_up = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_z:
+        fire_bullet2(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_q:
         sys.exit()
 
@@ -36,6 +38,14 @@ def fire_bullet(ai_settings, screen, ship, bullets):
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
         Bullet.bullet_sound()
+
+def fire_bullet2(ai_settings, screen, ship, bullets):
+    """Fire a bullet if limit nor reached yet."""
+    # Create a new bullet and add it to the bullets group.
+    if len(bullets) < ai_settings.bullets_allowed:
+        new_bullet = Bullet2(ai_settings, screen, ship)
+        bullets.add(new_bullet)
+        Bullet2.bullet_sound()
 
 def check_keyup_events(event, ship):
     """Respond to key releases."""
