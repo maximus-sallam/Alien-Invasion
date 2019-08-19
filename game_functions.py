@@ -168,6 +168,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
+        check_high_score(stats, sb)
 
 def get_number_aliens_x(ai_settings, alien_width):
     """Determine the number of aliens that fit in a row."""
@@ -301,3 +302,9 @@ def play_level_up_sound():
     pygame.mixer.init()
     pygame.mixer.music.load("sound/level_up.mp3")
     pygame.mixer.music.play(1, 0)
+
+def check_high_score(stats, sb):
+    """Check to see if there's a new high score."""
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score
+        sb.prep_high_score()
