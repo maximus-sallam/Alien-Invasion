@@ -44,8 +44,8 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         bullets.empty()
 
         # Create a new fleet and center the ship.
-        create_fleet(ai_settings, screen, ship, aliens)
         ship.center_ship()
+        create_fleet(ai_settings, screen, ship, aliens)
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Respond to the keypresses."""
@@ -119,7 +119,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets,
     # With background image
     screen.blit(ai_settings.bg_image, (0, 0))
 
-    # With backkground color
+    # With background color
     # screen.fill(ai_settings.bg_color)
 
     # Redraw all bullets behind ship and aliens.
