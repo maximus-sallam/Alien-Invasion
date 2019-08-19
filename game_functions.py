@@ -151,17 +151,26 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets):
 
     check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
                                   aliens, bullets)
-    if len(aliens) == 0:
-        # Destroy existing bullets, speed up game,  and create new fleet.
-        bullets.empty()
-        ai_settings.increase_speed()
-        play_level_up_sound()
-        ship.center_ship()
-        create_fleet(ai_settings, screen, ship, aliens)
 
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
                                   aliens, bullets):
     """Respond to bullet-alien collisions."""
+    if len(aliens) == 0:
+        # If the entire fleet is destroyed, start a new level.
+        ship.center_ship()
+        play_level_up_sound()
+        bullets.empty()
+        ai_settings.increase_speed()
+
+        # Increase level.
+        stats.level += 1
+        sb.prep_level()
+
+        # Pause.
+        sleep(1.0)
+
+        create_fleet(ai_settings, screen, ship, aliens)
+
     # Remove any bullets and aliens that have collided.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if collisions:
