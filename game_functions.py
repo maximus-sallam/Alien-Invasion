@@ -151,6 +151,8 @@ def update_bullets(ai_settings, screen, ship, aliens, bullets):
         # Destroy existing bullets, speed up game,  and create new fleet.
         bullets.empty()
         ai_settings.increase_speed()
+        play_level_up_sound()
+        ship.center_ship()
         create_fleet(ai_settings, screen, ship, aliens)
 
 def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
@@ -267,12 +269,12 @@ def play_music():
     pygame.mixer.init()
 
     # All the stars are closer
-    pygame.mixer.music.load("sound/stars.mp3")
+    # pygame.mixer.music.load("sound/stars.mp3")
 
     # Star wars main theme
     # pygame.mixer.music.load("sound/starwars.mp3")
 
-    pygame.mixer.music.play(-1, 0)
+    # pygame.mixer.music.play(-1, 0)
 
 def stop_music():
     """Stop background music."""
@@ -283,4 +285,10 @@ def play_end():
     """Final sound after you lose."""
     pygame.mixer.init()
     pygame.mixer.music.load("sound/sad.mp3")
+    pygame.mixer.music.play(1, 0)
+
+def play_level_up_sound():
+    """The sound that plays every time you clear a fleet."""
+    pygame.mixer.init()
+    pygame.mixer.music.load("sound/level_up.mp3")
     pygame.mixer.music.play(1, 0)
