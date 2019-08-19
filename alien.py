@@ -6,7 +6,7 @@ class Alien(Sprite):
     """A class to represent a single alien in the fleet."""
 
     def __init__(self, ai_settings, screen):
-        """Initializa the alien and set its starting position."""
+        """Initialize the alien and set its starting position."""
         super(Alien, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
@@ -42,6 +42,6 @@ class Alien(Sprite):
         self.x += (self.ai_settings.alien_speed_factor
                    * self.ai_settings.fleet_direction)
         self.rect.x = self.x
-        self.rect.x = self.radius * math.sin(self.angle) + self.rect.x
-        self.rect.y = self.radius * math.cos(self.angle) + self.rect.y
+        self.rect.x += self.radius * math.sin(self.angle)
+        self.rect.y += self.radius * math.cos(self.angle) + 1
         self.angle -= 0.5
