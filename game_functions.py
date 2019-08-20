@@ -176,8 +176,12 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         sleep(1.0)
 
         create_fleet(ai_settings, screen, ship, aliens)
+    remove_bullets(ai_settings, screen, stats, sb, ship,
+                                  aliens, bullets)
 
-    # Remove any bullets and aliens that have collided.
+def remove_bullets(ai_settings, screen, stats, sb, ship,
+                                  aliens, bullets):
+    """Remove any bullets and aliens that have collided."""
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if collisions:
         for aliens in collisions.values():
