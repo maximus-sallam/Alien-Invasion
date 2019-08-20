@@ -176,11 +176,10 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         sleep(1.0)
 
         create_fleet(ai_settings, screen, ship, aliens)
-    remove_bullets(ai_settings, screen, stats, sb, ship,
+    remove_bullets(ai_settings, stats, sb,
                                   aliens, bullets)
 
-def remove_bullets(ai_settings, screen, stats, sb, ship,
-                                  aliens, bullets):
+def remove_bullets(ai_settings, stats, sb, aliens, bullets):
     """Remove any bullets and aliens that have collided."""
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if collisions:
@@ -323,8 +322,8 @@ def play_end():
 def play_level_up_sound():
     """The sound that plays every time you clear a fleet."""
     pygame.mixer.init()
-    pygame.mixer.music.load("sound/level_up.mp3")
-    pygame.mixer.music.play(1, 0)
+    level_up_sound = pygame.mixer.Sound("sound/level_up.wav")
+    pygame.mixer.Sound.play(level_up_sound)
 
 def check_high_score(stats, sb):
     """Check to see if there's a new high score."""
