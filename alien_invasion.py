@@ -18,9 +18,6 @@ def run_game():
     # Make the Play button.
     play_button = Button(ai_settings, screen, "PLAY")
 
-    # Play background music.
-    gf.play_music()
-
     # Create an instance to store game statistics and create a scoreboard.
     stats = GameStats(ai_settings)
     sb = Scoreboard(ai_settings, screen, stats)

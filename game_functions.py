@@ -48,6 +48,9 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         ship.center_ship()
         create_fleet(ai_settings, screen, ship, aliens)
 
+        # Play background music.
+        play_music()
+
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Respond to the keypresses."""
     if event.key == pygame.K_RIGHT:
@@ -293,7 +296,7 @@ def change_fleet_direction(ai_settings, aliens):
 
 def hit_sound():
     pygame.mixer.init()
-    hit_sound = pygame.mixer.Sound('sound/hit.wav')
+    hit_sound = pygame.mixer.Sound('sound/explosion.wav')
     pygame.mixer.Sound.play(hit_sound)
 
 def play_music():
