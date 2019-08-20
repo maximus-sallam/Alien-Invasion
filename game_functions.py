@@ -298,12 +298,12 @@ def play_music():
     pygame.mixer.init()
 
     # All the stars are closer
-    # pygame.mixer.music.load("sound/stars.mp3")
+    pygame.mixer.music.load("sound/stars.mp3")
 
     # Star wars main theme
     # pygame.mixer.music.load("sound/starwars.mp3")
 
-    # pygame.mixer.music.play(-1, 0)
+    pygame.mixer.music.play(-1, 0)
 
 def stop_music():
     """Stop background music."""
