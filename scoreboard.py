@@ -1,4 +1,5 @@
 import pygame.font
+import json
 from pygame.sprite import Group
 
 from ship import Ship
@@ -46,6 +47,11 @@ class Scoreboard():
     def prep_high_score(self):
         """Turn the high score into a rendered image."""
         high_score = int(round(self.stats.high_score, -1))
+
+        filename = 'high_score.json'
+        with open(filename, 'w') as f_obj:
+            json.dump(high_score, f_obj)
+
         high_score_str = "High Score: " + "{:,}".format(high_score)
         self.high_score_image = self.font.render(high_score_str, True,
                                                  self.text_color)
