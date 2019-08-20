@@ -69,7 +69,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         fire_bullet_left(ai_settings, screen, ship, bullets)
     elif event.key == pygame.K_d:
         fire_bullet_right(ai_settings, screen, ship, bullets)
-    elif event.key == pygame.K_q:
+    elif event.key == pygame.K_ESCAPE:
         sys.exit()
 
 def fire_bullet_up(ai_settings, screen, ship, bullets):
