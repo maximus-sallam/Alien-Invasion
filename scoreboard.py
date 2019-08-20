@@ -14,7 +14,7 @@ class Scoreboard():
         self.ai_settings = ai_settings
         self.stats = stats
 
-        # Font settings for scoring informaiton.
+        # Font settings for scoring information.
         self.text_color = (0, 0, 255)
         self.font = pygame.font.SysFont(None, 48)
 
@@ -48,6 +48,7 @@ class Scoreboard():
         """Turn the high score into a rendered image."""
         high_score = int(round(self.stats.high_score, -1))
 
+        # Write high score to file.
         filename = 'high_score.json'
         with open(filename, 'w') as f_obj:
             json.dump(high_score, f_obj)
