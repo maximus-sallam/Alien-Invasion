@@ -186,6 +186,7 @@ def remove_bullets(ai_settings, stats, sb, aliens, bullets):
     """Remove any bullets and aliens that have collided."""
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if collisions:
+        alien_hit_sound()
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
@@ -297,6 +298,11 @@ def change_fleet_direction(ai_settings, aliens):
 def hit_sound():
     pygame.mixer.init()
     hit_sound = pygame.mixer.Sound('sound/explosion.wav')
+    pygame.mixer.Sound.play(hit_sound)
+
+def alien_hit_sound():
+    pygame.mixer.init()
+    hit_sound = pygame.mixer.Sound('sound/hit.wav')
     pygame.mixer.Sound.play(hit_sound)
 
 def play_music():
