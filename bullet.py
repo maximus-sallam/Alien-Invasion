@@ -16,8 +16,8 @@ class BulletUp(Sprite):
         self.rect.top = ship.rect.top
 
         # Store the bullet's position as a decimal value.
-        self.y = float(self.rect.y)
-        self.x = float(self.rect.x)
+        self.y = self.rect.y
+        self.x = self.rect.x
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
@@ -55,8 +55,8 @@ class BulletDown(Sprite):
         self.rect.top = ship.rect.top
 
         # Store the bullet's position as a decimal value.
-        self.y = float(self.rect.y)
-        self.x = float(self.rect.x)
+        self.y = self.rect.y
+        self.x = self.rect.x
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
@@ -94,8 +94,8 @@ class BulletLeft(Sprite):
         self.rect.top = ship.rect.top
 
         # Store the bullet's position as a decimal value.
-        self.y = float(self.rect.y)
-        self.x = float(self.rect.x)
+        self.y = self.rect.y
+        self.x = self.rect.x
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
@@ -134,8 +134,8 @@ class BulletRight(Sprite):
         self.rect.top = ship.rect.top
 
         # Store the bullet's position as a decimal value.
-        self.y = float(self.rect.y)
-        self.x = float(self.rect.x)
+        self.y = self.rect.y
+        self.x = self.rect.x
 
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor

@@ -1,6 +1,7 @@
 """This file is for testing"""
 import pygame
 import math
+from decimal import *
 
 class Block(pygame.sprite.Sprite):
     """ This class represents the ball that moves in a circle. """
@@ -8,17 +9,17 @@ class Block(pygame.sprite.Sprite):
     def __init__(self, color, width, height):
         """ Constructor that create's the ball's image. """
         super().__init__()
-        self.image =pygame.image.load('images/alien.png')
+        self.image =pygame.image.load('images/abby.png')
         self.rect = self.image.get_rect()
-        self.radius = 15
-        self.angle = 0
+        self.radius = 25
+        self.angle = Decimal(0.1)
 
     def update(self):
         """ Update the ball's position. """
         # Calculate a new x, y
-        self.rect.x = self.radius * math.sin(self.angle) + 130
-        self.rect.y = self.radius * math.cos(self.angle) + 130
-        self.angle += 0.5
+        self.rect.x = self.radius * math.sin(self.angle / 75) + 150
+        self.rect.y = self.radius * math.cos(self.angle / 75) + 150
+        self.angle += Decimal(0.25)
 
 
 # Initialize Pygame

@@ -1,6 +1,7 @@
 import pygame
 import math
 from pygame.sprite import Sprite
+from decimal import *
 
 class Alien(Sprite):
     """A class to represent a single alien in the fleet."""
@@ -10,6 +11,8 @@ class Alien(Sprite):
         super(Alien, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
+        self.radius = 25
+        self.angle = Decimal(0.1)
 
         # Load the alien image and set its rect attribute.
         self.image =pygame.image.load('images/abby.png')
@@ -20,10 +23,8 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
 
         # Store the alien's exact position.
-        self.x = float(self.rect.x)
+        self.x = float(self.rect.x) 
         self.y = float(self.rect.y)
-        self.radius = 7.5
-        self.angle = 5
 
     def blitme(self):
         """Draw the alien at its current location."""
@@ -39,9 +40,7 @@ class Alien(Sprite):
 
     def update(self):
         """Move the alien right or left."""
-        self.x += (self.ai_settings.alien_speed_factor
-                   * self.ai_settings.fleet_direction)
-        self.rect.x = self.x
-        self.rect.x += self.radius * math.sin(self.angle)
-        self.rect.y += self.radius * math.cos(self.angle) + 1
-        self.angle -= 0.5
+        self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
+        self.rect.x = self.x + self.radius * math.sin(self.angle)
+        self.rect.y = self.y + self.radius * math.cos(self.angle)
+        self.angle += Decimal(0.1)
