@@ -1,7 +1,6 @@
 import pygame
 import math
 from pygame.sprite import Sprite
-from decimal import *
 
 class Alien(Sprite):
     """A class to represent a single alien in the fleet."""
@@ -12,7 +11,7 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
         self.radius = 25
-        self.angle = Decimal(0.1)
+        self.angle = 0.1
 
         # Load the alien image and set its rect attribute.
         self.image =pygame.image.load('images/abby.png')
@@ -43,4 +42,4 @@ class Alien(Sprite):
         self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
         self.rect.x = self.x + self.radius * math.sin(self.angle)
         self.rect.y = self.y + self.radius * math.cos(self.angle)
-        self.angle += Decimal(0.1)
+        self.angle += 0.1

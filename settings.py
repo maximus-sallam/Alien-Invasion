@@ -1,5 +1,4 @@
 import pygame
-from decimal import *
 
 class Settings():
     """A class to store all settings for Max Invasion."""
@@ -13,7 +12,7 @@ class Settings():
         self.bg_image = pygame.image.load("images/background.jpg")
 
         # Ship settings
-        self.ship_speed_factor = Decimal(1.5)
+        self.ship_speed_factor = 1.5
         self.ship_limit = int(3)
 
         # Bullet settings
@@ -27,10 +26,10 @@ class Settings():
         self.fleet_drop_speed = int(10)
 
         # How quickly the game speeds up
-        self.speedup_scale = Decimal(1.25)
+        self.speedup_scale = 1.25
 
         # How quickly the alien point values increase
-        self.score_scale = Decimal(1.5)
+        self.score_scale = 1.5
 
         self.initialize_dynamic_settings()
 
