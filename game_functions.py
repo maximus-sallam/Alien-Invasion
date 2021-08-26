@@ -297,15 +297,15 @@ def alien_hit_sound():
 
 def play_music():
     """Play background music."""
-    #pygame.mixer.init()
+    pygame.mixer.init()
 
     # All the stars are closer
-    #pygame.mixer.music.load("sound/stars.wav")
+    pygame.mixer.music.load("sound/stars.wav")
 
     # Star wars main theme
     # pygame.mixer.music.load("sound/starwars.wav")
 
-    #pygame.mixer.music.play(-1, 0)
+    pygame.mixer.music.play(-1, 0)
 
 def stop_music():
     """Stop background music."""
